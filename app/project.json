@@ -9,6 +9,7 @@
     "访视排窗",
     "偏离复核",
     "复检裁决",
+    "分析集裁决",
     "锁库检查",
     "冻结归档"
   ],
@@ -28,6 +29,7 @@
     "windows",
     "deviation",
     "retest",
+    "analysis",
     "locking",
     "archive"
   ],
@@ -62,6 +64,27 @@
     "deviations": "偏离",
     "retest_issues": "复检问题",
     "blocked": "阻断项",
-    "status": "状态"
+    "status": "状态",
+    "set": "分析集",
+    "set_name": "分析集名称",
+    "included": "是否入集",
+    "basis": "裁决依据",
+    "blockers": "阻断原因码",
+    "blocker_text": "阻断原因",
+    "dose_count": "给药次数",
+    "first_dose_at": "首次给药",
+    "randomized": "已随机化",
+    "randomized_at": "随机化时刻",
+    "disposition": "处置状态",
+    "disposition_at": "处置时刻",
+    "evaluable_visits": "可评估访视",
+    "primary_endpoint": "主要终点",
+    "primary_endpoint_ok": "主要终点可评估",
+    "major_deviations": "重大偏离",
+    "evidence_refs": "给药凭据",
+    "members": "成员名单",
+    "size": "成员数",
+    "digest": "成员版本指纹",
+    "version_id": "成员版本号"
   }
 }

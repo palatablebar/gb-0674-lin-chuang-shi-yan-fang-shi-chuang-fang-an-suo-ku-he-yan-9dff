@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid analysis-grid">
+  <section class="panel main-panel">
+    <div class="panel__head"><h2>每名受试者分析集归属</h2><span>{{ state.analysis_membership.rows|length }} 人 · 指纹 {{ state.analysis_membership.digest[:12] }}</span></div>
+    <div class="table-frame">
+      <table class="membership-table">
+        <thead><tr><th>受试者</th><th>随机化</th><th>给药</th><th>处置</th><th>FAS</th><th>SS</th><th>PPS</th><th>阻断原因</th><th>裁决依据 / 凭据</th></tr></thead>
+        <tbody>
+        {% for r in state.analysis_membership.rows %}
+          <tr>
+            <td class="mono">{{ r.subject }}</td>
+            <td>{{ '是' if r.randomized else '否' }}</td>
+            <td>{{ r.dose_count }} 次{% if r.first_dose_at %}<br><small class="mono">{{ r.first_dose_at[:10] }}</small>{% endif %}</td>
+            <td>{{ r.disposition }}{% if r.disposition_at %}<br><small class="mono">{{ r.disposition_at[:10] }}</small>{% endif %}</td>
+            {% for m in r.memberships %}
+            <td><span class="badge {{ 'in' if m.included else 'out' }}" title="{{ m.basis }}">{{ '入集' if m.included else '排除' }}</span></td>
+            {% endfor %}
+            <td class="blocker-cell" title="{{ r.blocker_text }}">{{ r.blocker_text }}{% if r.evidence_refs %}<br><small class="mono">{{ r.evidence_refs|join('，') }}</small>{% endif %}</td>
+            <td class="basis-cell">{% for m in r.memberships %}<small><b>{{ m.set }}</b>：{{ m.basis }}</small><br>{% endfor %}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel matrix-panel">
+    <div class="panel__head"><h2>分析集规模</h2><span>锁库口径</span></div>
+    <div class="set-cards">
+      {% for s in state.analysis_membership.sets %}
+      <div class="set-card">
+        <label>{{ s.set }} {{ s.set_name }}</label>
+        <strong>{{ s.size }}</strong>
+        <small class="mono">{{ state.lock_scope.sets | selectattr('set','equalto',s.set) | map(attribute='members') | first | join('，') }}</small>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel__head"><h2>成员版本与锁库范围</h2><span>整版事务替换</span></div>
+    <div class="version-panel">
+      <p class="rule-note">同一成员材料重试不新增版本；上游处置更新后旧版标记失效（superseded）并重算；整套替换失败保留旧版。</p>
+      <div id="version-list" class="version-list" data-run-id="{{ state.manifest.run_id }}" data-digest="{{ state.analysis_membership.digest }}">加载版本中…</div>
+      <button id="publish-membership" type="button">发布成员版本</button>
+      <p>当前锁定版本：<b id="locked-tag" class="mono">{{ state.locked_membership or '未锁定' }}</b></p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel__head"><h2>阻断原因分布</h2><span>{{ state.analysis_membership.blocker_counts|length }} 类</span></div>
+    <div class="severity">
+      {% for code, n in state.analysis_membership.blocker_counts.items() %}
+      <label>{{ code }} <b>{{ n }}</b></label><div><i style="width:{{ n*18 }}%"></i></div>
+      {% else %}<p>当前无阻断。</p>{% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}

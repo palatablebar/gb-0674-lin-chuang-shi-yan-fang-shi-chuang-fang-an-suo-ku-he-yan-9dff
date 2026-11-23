@@ -14,6 +14,7 @@ def test_seven_entries(tmp_path,monkeypatch):
     for k in main.MODULES:
         assert c.post('/api/'+k,json={}).status_code==200
         assert c.get('/'+k).status_code==200
+    assert len(main.MODULES)==8
 def test_bad_dataset(tmp_path,monkeypatch):
     c=client(tmp_path,monkeypatch);assert c.post('/api/runs',json={'dataset':'../bad'}).status_code==422
 def test_missing_run(tmp_path,monkeypatch):

@@ -2,7 +2,7 @@
 
 给临床试验数据管理员使用。按入组基准计算访视半开窗，方案修订按受试者生效时间选版；漏访不可用复检伪填。
 
-七个业务模块：记录采信、方案版本、访视排窗、偏离复核、复检裁决、锁库检查、冻结归档。
+八个业务模块：记录采信、方案版本、访视排窗、偏离复核、复检裁决、分析集裁决、锁库检查、冻结归档（分析集裁决位于锁库检查之前）。
 
 ```sh
 docker compose up --build -d
@@ -14,6 +14,8 @@ docker compose exec -T app pytest -q
 各模块页面对应 `/<模块英文名>`，各模块执行入口为 `POST /api/<模块英文名>`，不传参即可独立演示。完整运行 `POST /api/runs` 支持 `dataset`（dirty/clean/legacy）、`csv_text` 与 `overrides` 参数。批次历史 `GET /api/runs`，详情 `GET /api/runs/{run_id}`。
 
 同输入与规则版本生成相同批号，只保留一条批次。复核入口 `POST /api/runs/{run_id}/review` 提交当前 `revision`，陈旧提交409。归档包只有一个下载入口 `GET /api/export/{run_id}`，含证据和运行摘要。原始隔离在页面同屏显示。
+
+分析集裁决（`/analysis`）按上游证据为每名受试者定 FAS 全分析集、SS 安全性集、PPS 符合方案集：随机后从未给药者保留 FAS 但排除 SS/PPS，随机与随访凭据留存；实际给药一次即入 SS，方案偏离不剔除；仅缺一次复检但主要终点完成者不排除 PPS。成员材料经 SHA-256 内容寻址生成成员版本，`POST /api/runs/{run_id}/membership/publish` 整版事务发布——同指纹重试不新增版本，上游处置更新后旧版标记 superseded 并另立新版，整套替换失败回滚保留旧版；版本清单 `GET /api/runs/{run_id}/membership`。锁库检查页以当前成员版本给出各集锁库范围，`POST /api/runs/{run_id}/lock` 绑定后冻结印章纳入成员版本指针，归档包新增 `analysis_membership.json`。
 
 SQLite使用命名卷，容器重启后保留历史。要重建演示可在Compose中改用新的卷名称，保留旧卷。
 

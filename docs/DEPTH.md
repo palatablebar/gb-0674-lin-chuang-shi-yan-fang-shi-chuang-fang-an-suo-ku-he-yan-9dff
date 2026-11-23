@@ -11,8 +11,9 @@
 | M3 访视排窗 | 执行并复核访视排窗 | `POST /api/windows` | `app/modules/windows/rules.py` | `tests/test_windows.py` |
 | M4 偏离复核 | 执行并复核偏离复核 | `POST /api/deviation` | `app/modules/deviation/rules.py` | `tests/test_deviation.py` |
 | M5 复检裁决 | 执行并复核复检裁决 | `POST /api/retest` | `app/modules/retest/rules.py` | `tests/test_retest.py` |
-| M6 锁库检查 | 执行并复核锁库检查 | `POST /api/locking` | `app/modules/locking/rules.py` | `tests/test_locking.py` |
-| M7 冻结归档 | 执行并复核冻结归档 | `POST /api/archive` | `app/modules/archive/rules.py` | `tests/test_archive.py` |
+| M6 分析集裁决 | 执行并复核分析集成员归属与成员版本 | `POST /api/analysis` | `app/modules/analysis/rules.py` | `tests/test_analysis.py`、`tests/test_membership_versions.py` |
+| M7 锁库检查 | 执行并复核锁库检查与范围冻结 | `POST /api/locking` | `app/modules/locking/rules.py` | `tests/test_locking.py` |
+| M8 冻结归档 | 执行并复核冻结归档 | `POST /api/archive` | `app/modules/archive/rules.py` | `tests/test_archive.py` |
 
 ## 陷阱登记
 
@@ -29,6 +30,9 @@
 | TRAP-15 | 检验单位换算 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/protocol/rules.py` | `tests/test_protocol.py::test_unit_conversion_real` |
 | TRAP-23 | 访视窗末端 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/windows/rules.py` | `tests/test_windows.py::test_half_open_end` |
 | TRAP-11 | UTC日历归一 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/windows/rules.py` | `tests/test_windows.py::test_utc_day_equivalence` |
+| TRAP-31 | 未给药者混入有效性判断 | 全按完成病例漏掉安全事件，或全纳入污染有效性 | FAS/SS/PPS 三集按随机化、实际给药、终点可评估分别裁决 | `app/modules/analysis/rules.py` | `tests/test_analysis.py` |
+| TRAP-32 | 方案偏离剔除安全性成员 | 给药者因偏离从安全性集消失 | 偏离只影响 PPS，SS 以实际给药为唯一门槛 | `app/modules/analysis/rules.py` | `tests/test_analysis.py::test_dosed_subject_with_deviation_not_removed_from_safety` |
+| TRAP-33 | 成员版本重算与替换 | 重试新增版本、替换失败留下半成品、上游更新后旧结论未失效 | 内容寻址+单事务整版替换+superseded失效 | `app/store.py` | `tests/test_membership_versions.py` |
 
 ## 对账规则
 

@@ -5,6 +5,7 @@
     "windows",
     "deviation",
     "retest",
+    "analysis",
     "locking",
     "archive"
   ],
@@ -208,5 +209,222 @@
     "g/L": "100",
     "毫克/分升": "1"
   },
-  "retest_hours": 72
+  "retest_hours": 72,
+  "dosing_registry": {
+    "00001": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00001-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00002": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00002-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00003": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00003-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00004": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00004-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00005": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00005-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00006": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00006-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00007": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00007-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00008": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00008-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00009": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00009-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00010": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00010-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00011": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00011-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00012": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00012-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00013": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00013-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00014": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00014-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00015": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00015-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00016": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00016-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00017": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00017-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00018": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00018-01"
+        }
+      ],
+      "disposition": "在研/完成",
+      "disposition_at": null
+    },
+    "00019": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [],
+      "disposition": "随机后未给药",
+      "disposition_at": "2026-10-03T00:00:00+08:00"
+    },
+    "00020": {
+      "randomized_at": "2026-10-01T00:00:00+08:00",
+      "doses": [
+        {
+          "at": "2026-10-06T08:00:00+08:00",
+          "evidence": "DOSE-00020-01"
+        }
+      ],
+      "disposition": "首剂后退出",
+      "disposition_at": "2026-10-09T00:00:00+08:00"
+    }
+  }
 }
